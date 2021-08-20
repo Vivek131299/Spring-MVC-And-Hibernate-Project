@@ -28,6 +28,17 @@
 	<div id="container">
 		
 		<div id="content">
+		
+		
+		<!-- Adding new button : Add Customer-->
+		<input type="button" value="Add Customer"
+			onclick="window.location.href='showFormForAdd'; return false;"
+			class="add-button" />
+		
+		<!-- So, when we click the 'Add Customer' button, it will call a Spring Controller Mapping, 
+		then it will show form for add.
+		So basically it will take user to /showFormForAdd URL. -->
+		
 			
 			<!-- Add our html table here -->
 			<table>

@@ -108,4 +108,12 @@ public class CustomerController {
 	//		  Can also send binary data.
 	//
 
+	
+	
+	// Mapping /showFormForAdd
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model theModel) {
+		
+		return "customer-form";
+	}
 }
