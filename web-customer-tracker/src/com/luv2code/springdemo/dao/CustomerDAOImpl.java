@@ -54,7 +54,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	// So now, no need to manually begin and commit the transaction.
 	
 	@Override
-	@Transactional
+	/*@Transactional*/	// REMOVING @Transactional later on due to adding new SERVICE LAYER. (See CustomerService.java Interface for explanation).
 	public List<Customer> getCustomers() {
 		
 		// get the current hibernate session

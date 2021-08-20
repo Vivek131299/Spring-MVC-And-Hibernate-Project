@@ -11,17 +11,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.luv2code.springdemo.dao.CustomerDAO;
 import com.luv2code.springdemo.entity.Customer;
+import com.luv2code.springdemo.service.CustomerService;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
 	
+	/*
 	// INJECTING THE CUSTOMER DAO
 	@Autowired // We are making use @Autwired Annotation for dependency injection for this field.
 			   // So, Spring will SCAN FOR A COMPONENT that Implements CustomerDAO Interface (which is 
 	           // 'CustomerDAOImpl' class in this case) with the help of @Repository Annotation that we 
 	           // have given in our CustomerDAOImpl class.
 	private CustomerDAO customerDAO;
+	*/
+	
+	// COMMENTING ABOVE CustomerDAO injection code LATER ON,
+	// BECAUSE we have added a new SERVICE LAYER. (See CustomerService.java Interface for explanation).
+	// So we are no longer use the DAO directly. Instead we are going to use that new Service layer (CustomerService).
+	
+	// So now, INJECTING our CustomerService
+	@Autowired
+	private CustomerService customerService;
+	
+	
+	
 
 	
 	/*@RequestMapping("/list")*/
@@ -56,8 +70,8 @@ public class CustomerController {
 	// So it will ONLY HANDLE GET Requests.
 	public String listCustomers(Model theModel) {
 		
-		// get the customer from the DAO
-		List<Customer> theCustomers =  customerDAO.getCustomers();
+		// get the customer from the Service
+		List<Customer> theCustomers =  customerService.getCustomers();
 		
 		// add the customers to the model
 		theModel.addAttribute("customers", theCustomers);
