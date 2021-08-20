@@ -7,7 +7,12 @@
 
 <head>
 
-<title>List Customers</title>
+	<title>List Customers</title>
+
+	<!-- Reference our css files -->
+	<link type="text/css" rel="stylesheet"
+	      href="${pageContext.request.contextPath}/resources/css/style.css" />
+	<!-- Above, '${pageContext.request.contextPath}' will give us actual proper name of our app -->
 
 </head>
 

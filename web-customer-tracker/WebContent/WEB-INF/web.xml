@@ -7,6 +7,9 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
+    <!-- These are our welcome files. So these files will be shown/run first when we run our app.
+    They are in top down fashion. So if it founds first file (index.jsp) then it use that to render and show
+    it to user otherwise it will show second file (index.html). -->
   </welcome-file-list>
 
   <servlet>
