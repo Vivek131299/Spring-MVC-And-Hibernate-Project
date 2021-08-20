@@ -114,6 +114,12 @@ public class CustomerController {
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 		
+		// Creating the model attribute to bind the form data
+		Customer theCustomer = new Customer();
+		theModel.addAttribute("customer", theCustomer);
+		// 'customer' is the name of attribute and 'theCustomer' is the actual value.
+		// We will use this name 'customer' in our HTML form when start building fields.
+		
 		return "customer-form";
 	}
 }
