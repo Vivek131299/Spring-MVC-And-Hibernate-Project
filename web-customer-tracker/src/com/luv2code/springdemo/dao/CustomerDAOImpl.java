@@ -60,8 +60,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		// create a query
-		Query<Customer> theQuery = currentSession.createQuery("from Customer", Customer.class);
+		// create a query, AND sort this by the last name. (By using '... order by lastName' in the HQL query).
+		Query<Customer> theQuery = currentSession.createQuery("from Customer order by lastName", Customer.class);
 		// this query will return list of customers.
 		
 		// execute query and get result list
