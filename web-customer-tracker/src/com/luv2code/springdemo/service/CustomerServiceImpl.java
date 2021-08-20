@@ -31,4 +31,15 @@ public class CustomerServiceImpl implements CustomerService {
 		// whatever the DAO had returned.
 	}
 
+
+	@Override
+	@Transactional
+	public void saveCustomer(Customer theCustomer) {
+
+		// delegating the calls from the Service over to our DAO
+		customerDAO.saveCustomer(theCustomer);
+		// So here, we have to add this .saveCustomer() method to our CustomerDAO Interface,
+		// AND ALSO Implement that method in our CustomerDAOImpl class. (See saveCustomer() in CustomerDAOImpl class).
+	}
+
 }

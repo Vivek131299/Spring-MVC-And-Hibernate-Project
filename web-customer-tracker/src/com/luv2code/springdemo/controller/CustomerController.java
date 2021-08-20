@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -121,5 +123,21 @@ public class CustomerController {
 		// We will use this name 'customer' in our HTML form when start building fields.
 		
 		return "customer-form";
+	}
+	
+	
+	// Mapping /saveCustomer. Because we have given action='saveCustomer' in our HTML add customer form.
+	// And also we have method='POST'.
+	// ALSO, we are passing the ModelAttribute 'customer' which we also have in our HTML add customer form.
+	@PostMapping("/saveCustomer")
+	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
+		
+		// Save the customer using our Service.
+		customerService.saveCustomer(theCustomer);
+		// So here we add .saveCustomer() method to our CustomerService Interface,
+		// AND Implement that method in our CustomerServiceImpl class. (See saveCusomer() in CustomerServiceImpl class).
+		
+		// redirecting user to /customer/list.
+		return "redirect:/customer/list";
 	}
 }
