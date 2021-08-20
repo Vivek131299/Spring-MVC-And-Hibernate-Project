@@ -27,6 +27,10 @@ import com.luv2code.springdemo.entity.Customer;
 // So, it means that if we give @Repository Annotation over our DAO Implementation class, 
 // then our class will also e available FOR AUTO-COMPONENT SCANNING.
 //
+// So whenever in some controller/class, if we want to use this DAO_implementation/class to get some data from database,
+// we will INJECT THE DEPENDENCY for this DAO Implementation class(CustomerDAOImpl) using
+// the @Autowired Annotation. (See CustomerController class).
+//
 // For this Annotation, Spring will also provide translation of any JDBC related exceptions.
 // So, any checked exceptions that will be thrown, Spring will translate that those to 
 // unchecked exceptions.
