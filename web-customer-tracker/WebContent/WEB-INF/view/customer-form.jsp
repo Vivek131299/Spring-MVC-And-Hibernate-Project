@@ -32,6 +32,17 @@
 		modelAttribute='customer' will bind the data to that modelAttribute item
 		 that's in the actual Model in our Controller class. -->
 		 
+		 <!-- For updating the data for customer, we have given the modelAttribute 'customer'
+		 and we are have same named attribute which has get the customer data from database in it 
+		 when we click on 'Update' link in table.
+		 So, whatever data that we have populated in our model attribute 'customer',  it will use
+		 to PRE_POPULATE the below fields in this form.
+		 So, behind the scenes, Spring will call the appropriate GETTER METHODS (.getFirstName(), 
+		 .getLastName, .getEmail()) of each field on the 'customer' object if the values of it are NON_NULL.
+		 
+		 While submitting the form, Spring will call SETTER METHODS (.setFirstName, .setLastName, .setEmail)
+		 to save the data AND while loading the form, Spring will call GETTER METHODS to pre-populate the fields in the form. -->
+		 
 		 <table>
 		 	<tbody>
 		 	
