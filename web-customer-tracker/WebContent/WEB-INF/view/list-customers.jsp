@@ -53,12 +53,23 @@
 				<!-- Loop over and print out customers -->
 				<c:forEach var="tempCustomer" items="${customers}"> <!-- 'customers' is actual attribute name from in Spring Model -->
 					
+					<!-- FOR UPDATING THE CUSTOMER -->
 					<!-- Construct an 'update' link with customer id -->
 					<!-- Creating a variable to store URL -->
 					<c:url var="updateLink" value="/customer/showFormForUpdate">
 						<!-- Adding a parameter called 'customerId' and assigning it to current customer(tempCustomer) id. -->
 						<c:param name="customerId" value="${tempCustomer.id}" />
 					</c:url>
+					
+					
+					<!-- FOR DELETING THE CUSTOMER -->
+					<!-- Construct an 'delete' link with customer id -->
+					<!-- Creating a variable to store URL -->
+					<c:url var="deleteLink" value="/customer/delete">
+						<!-- Adding a parameter called 'customerId' and assigning it to current customer(tempCustomer) id. -->
+						<c:param name="customerId" value="${tempCustomer.id}" />
+					</c:url>
+					
 					
 					<tr>
 						<td>${tempCustomer.firstName} </td>
@@ -67,6 +78,16 @@
 						<td><!-- Display the update link -->
 							<a href="${updateLink}">Update</a>	
 							<!-- 'updateLink' is the URL variable which we have defined above-->
+							
+							<!-- For delete -->
+							|
+							<a href="${deleteLink}"
+							   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+							   <!-- Above, in 'onclick', we are prompting the user for Confirmation 
+							   dialog pop up box using JavaScript.
+							   So if user clicks cancel then we are returning false which will not perform the delete operation.
+							   If user clicks OK then it will proceed and will execute the delete operation. -->
+							
 						 </td>
 					</tr>
 					
