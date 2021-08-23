@@ -43,6 +43,20 @@
 		 While submitting the form, Spring will call SETTER METHODS (.setFirstName, .setLastName, .setEmail)
 		 to save the data AND while loading the form, Spring will call GETTER METHODS to pre-populate the fields in the form. -->
 		 
+		 
+		 <!-- while updating the customer, need to associate this data with customer id -->
+		 <form:hidden path="id" />
+		 <!-- Above, is a hidden form field having customer id.
+		 So when this form is loaded, it will get the id by Getter Method (customer.getId()) like other 
+		 fields and place it there in hidden form field.
+		 Then, when we do SUBMIT, it will actually submit this data by customer.setID() with the 
+		 appropriate data.
+		 This is very IMPORTANT.
+		 Without this line, we would actually lose the ID of the original customer.
+		 So we use this line to track the customer so that the back end system knows which customer to 
+		 form the update operation on. -->
+		 
+		 
 		 <table>
 		 	<tbody>
 		 	

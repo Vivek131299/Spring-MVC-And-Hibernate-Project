@@ -79,7 +79,20 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// save the customer FINALLY.
-		currentSession.save(theCustomer);
+		/*currentSession.save(theCustomer);*/
+		
+		// Commenting above save() method because,
+		// While UPDATING the customer, we will make use of saveOrUpdate() method of Hibernate instead of
+		// above save() method.
+		// saveOrUpdate() method CHECKS that whether the passed customer is already available in the table
+		// by its primary key (id). If not, then it ADDS that data into database.
+		// AND if the data/entry is present for that primary key(id), then it will UPDATE that previous data
+		// with the new one.
+		// So no need to call different methods for saving and updating the data. We can call saveOrUpdate()
+		// method that will handle both.
+		
+		// save/update the customer
+		currentSession.saveOrUpdate(theCustomer);
 		
 	}
 
