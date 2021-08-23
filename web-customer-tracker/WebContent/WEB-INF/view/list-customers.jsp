@@ -1,6 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- Above line is for adding support for JSTL Core Tags -->
 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!-- Above line adds support for Spring MVC Form Tags. -->
+
+
 <!DOCTYPE>
 
 <html>
@@ -39,6 +43,16 @@
 		then it will show form for add.
 		So basically it will take user to /showFormForAdd URL. -->
 		
+		
+		<!-- Add a search box -->
+		<form:form action="search" method="GET">
+		
+			Search customer: <input type="text" name="theSearchName" />
+			
+			<input type="submit" value="Search" class="add-button" />
+		
+		</form:form>
+			
 			
 			<!-- Add our html table here -->
 			<table>

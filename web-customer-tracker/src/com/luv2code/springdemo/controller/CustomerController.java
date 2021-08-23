@@ -166,4 +166,18 @@ public class CustomerController {
 		
 		return "redirect:/customer/list";
 	}
+	
+	
+	@GetMapping("/search")
+	public String searchCustomers(@RequestParam("theSearchName") String theSearchName, Model theModel) {
+	// Above, 'theSearchName' is the parameter name which has text from search box which we passed from out HTML form.
+		
+		// search customers from the service
+		List<Customer> theCustomers = customerService.searchCustomers(theSearchName);
+		
+		// add the customers to the model
+		theModel.addAttribute("customers", theCustomers);
+		
+		return "list-customers";
+	}
 }
